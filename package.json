@@ -3,9 +3,13 @@
   "version": "1.0.0",
   "description": "UI for SkyViewer",
   "main": "main.js",
+  "type": "module",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "electron ."
   },
   "author": "CahyaAji",
-  "license": "ISC"
+  "license": "ISC",
+  "devDependencies": {
+    "electron": "^34.2.0"
+  }
 }
