@@ -1,10 +1,12 @@
-import { app, BrowserWindow, screen } from "electron";
+import { app, BrowserWindow } from "electron";
 import path from "node:path";
 
+let mainWindow;
+
 const createWindow = () => {
-  const win = new BrowserWindow({
-    height: 500,
-    width: 480,
+  mainWindow = new BrowserWindow({
+    // minHeight: 400,
+    // minWidth: 500,
     autoHideMenuBar: true,
     webPreferences: {
       nodeIntegration: true,
@@ -13,7 +15,12 @@ const createWindow = () => {
     },
   });
 
-  win.loadFile("src/index.html");
+  mainWindow.maximize();
+  mainWindow.loadFile("src/index.html");
+
+  mainWindow.on("closed", function () {
+    mainWindow = null;
+  });
 };
 
 app.whenReady().then(() => {

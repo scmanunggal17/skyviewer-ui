@@ -3,9 +3,31 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="assets/style.css" />
     <title>SkyViewer</title>
   </head>
   <body>
-    Coba
+    <main>
+      <iframe
+        src="https://en.wikipedia.org/wiki/Example.com"
+        frameborder="0"
+      ></iframe>
+      <button id="set-loc-btn"><img src="assets/loc.png" alt="" /></button>
+      <div class="set-loc-dialog">
+        <div class="field-dialog">
+          <div>Latitude :</div>
+          <input type="text" />
+        </div>
+        <div class="field-dialog">
+          <div>Longitude :</div>
+          <input type="text" />
+        </div>
+        <div class="field-button">
+          <button id="cancel-set-loc">Cancel</button>
+          <button id="submit-set-loc">Set</button>
+        </div>
+      </div>
+    </main>
   </body>
+  <script src="index.js"></script>
 </html>
