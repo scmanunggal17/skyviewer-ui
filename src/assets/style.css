@@ -39,8 +39,8 @@ iframe {
   position: absolute;
   width: 44px;
   height: 44px;
-  bottom: 10px;
-  left: 20px;
+  bottom: 70px;
+  left: 10px;
   z-index: 10;
   border-radius: 10px;
   padding: 4px;
@@ -56,8 +56,8 @@ iframe {
   position: absolute;
   display: none;
   flex-direction: column;
-  bottom: 58px;
-  left: 20px;
+  bottom: 70px;
+  left: 10px;
   z-index: 20;
   border: 2px black solid;
   background-color: whitesmoke;

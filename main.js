@@ -1,8 +1,6 @@
 import { app, BrowserWindow, ipcMain } from "electron";
 import { exec } from "node:child_process";
-import { error } from "node:console";
 import path from "node:path";
-import { stderr, stdout } from "node:process";
 
 let mainWindow;
 
@@ -43,14 +41,13 @@ app.on("window-all-closed", () => {
 });
 
 ipcMain.on("set-location", (event, latitude, longitude) => {
-  // Validate parameters to prevent command injection
   if (!/^-?\d+(\.\d+)?$/.test(latitude) || !/^-?\d+(\.\d+)?$/.test(longitude)) {
     console.error("Invalid parameters");
     return;
   }
 
-  // const command = `sudo readsb-set-location ${latitude} ${longitude}`;
-  const command = `echo ${latitude}, ${longitude}`;
+  const command = `sudo readsb-set-location ${latitude} ${longitude}`;
+  // const command = `echo ${latitude}, ${longitude}`;
 
   setTimeout(() => {
     exec(command, (error, stdout, stderr) => {
