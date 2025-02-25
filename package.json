@@ -25,7 +25,7 @@
     "files": [
       "src/**/*",
       "main.js",
-      "preload.js",
+      "preload.cjs",
       "node_modules/**/*"
     ],
     "linux": {
