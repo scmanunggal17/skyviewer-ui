@@ -1,5 +1,8 @@
-import { app, BrowserWindow } from "electron";
+import { app, BrowserWindow, ipcMain } from "electron";
+import { exec } from "node:child_process";
+import { error } from "node:console";
 import path from "node:path";
+import { stderr, stdout } from "node:process";
 
 let mainWindow;
 
@@ -11,7 +14,7 @@ const createWindow = () => {
     webPreferences: {
       nodeIntegration: true,
       contextIsolation: true,
-      //   preload: path.join(app.getAppPath(), "src/electron/preload.cjs"),
+      preload: path.join(app.getAppPath(), "preload.cjs"),
     },
   });
 
@@ -37,4 +40,29 @@ app.on("window-all-closed", () => {
   if (process.platform !== "darwin") {
     app.quit();
   }
+});
+
+ipcMain.on("set-location", (event, latitude, longitude) => {
+  // Validate parameters to prevent command injection
+  if (!/^-?\d+(\.\d+)?$/.test(latitude) || !/^-?\d+(\.\d+)?$/.test(longitude)) {
+    console.error("Invalid parameters");
+    return;
+  }
+
+  // const command = `sudo readsb-set-location ${latitude} ${longitude}`;
+  const command = `echo ${latitude}, ${longitude}`;
+
+  setTimeout(() => {
+    exec(command, (error, stdout, stderr) => {
+      if (error) {
+        console.error(`Error: ${error.message}`);
+        return;
+      }
+      if (stderr) {
+        console.error(`Stderr: ${stderr}`);
+        return;
+      }
+      console.log(`Stdout: ${stdout}`);
+    });
+  }, 50);
 });
