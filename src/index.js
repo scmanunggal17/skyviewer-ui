@@ -11,6 +11,11 @@ document.getElementById("submit-set-loc").addEventListener("click", () => {
     return;
   }
   window.NodeFn.setLocation(latitude, longitude);
+
+  setTimeout(() => {
+    document.querySelector(".set-loc-dialog").style.display = "none";
+  }, 500);
+  
 });
 
 document.getElementById("set-loc-btn").addEventListener("click", () => {
