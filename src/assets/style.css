@@ -42,9 +42,6 @@ iframe {
   bottom: 10px;
   left: 20px;
   z-index: 10;
-  /* background-image: url(loc.png);
-  background-size: cover;
-  background-repeat: no-repeat; */
   border-radius: 10px;
   padding: 4px;
 }
@@ -57,12 +54,11 @@ iframe {
 
 .set-loc-dialog {
   position: absolute;
-  display: flex;
+  display: none;
   flex-direction: column;
   bottom: 58px;
   left: 20px;
   z-index: 20;
-  /* height: 100px; */
   border: 2px black solid;
   background-color: whitesmoke;
   border-radius: 8px;

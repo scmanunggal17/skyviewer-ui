@@ -14,13 +14,19 @@
       ></iframe>
       <button id="set-loc-btn"><img src="assets/loc.png" alt="" /></button>
       <div class="set-loc-dialog">
+        <div
+          style="display: none; text-align: end; color: red"
+          id="error-dialog"
+        >
+          Invalid GPS Format!
+        </div>
         <div class="field-dialog">
           <div>Latitude :</div>
-          <input type="text" />
+          <input type="text" id="latitude" />
         </div>
         <div class="field-dialog">
           <div>Longitude :</div>
-          <input type="text" />
+          <input type="text" id="longitude" />
         </div>
         <div class="field-button">
           <button id="cancel-set-loc">Cancel</button>
