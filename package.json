@@ -10,6 +10,31 @@
   "author": "CahyaAji",
   "license": "ISC",
   "devDependencies": {
-    "electron": "^34.2.0"
+    "electron": "^34.2.0",
+    "electron-builder": "^25.1.8"
+  },
+  "build":{
+    "appId": "com.scm.skyviewer",
+    "productName": "SkyViewer",
+    "extraMetadata": {
+      "name": "SkyViewer",
+      "version": "1.0.1",
+      "description": "SkyViewer adsb",
+      "maintainer": "scm"
+    },
+    "files": [
+      "src/**/*",
+      "main.js",
+      "preload.js",
+      "node_modules/**/*"
+    ],
+    "linux": {
+      "target": [
+        "deb"
+      ],
+      "maintainer": "CahyaAji",
+      "category": "Utility",
+      "icon": "src/assets/icons"
+    }
   }
 }
